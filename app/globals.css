@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face {
+  font-family: Niconne;
+  src: url("../public//font/Niconne.ttf");
+}
+@font-face {
+  font-family: InterBlack;
+  src: url("../public//font/Inter-Black.ttf");
+}
+@font-face {
+  font-family: InterBold;
+  src: url("../public//font//Inter-Bold.ttf");
+}
+@font-face {
+  font-family: InterMedium;
+  src: url("../public//font/Inter-Medium.ttf");
+}
+@font-face {
+  font-family: InterRegular;
+  src: url("../public//font/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url("../public//font/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: PoppinsLight;
+  src: url("../public//font/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: PoppinsMedium;
+  src: url("../public//font/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: PoppinsRegular;
+  src: url("../public//font/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: PoppinsThin;
+  src: url("../public//font/Poppins-Thin.ttf");
+}
+@font-face {
+  font-family: VictorMonomedium;
+  src: url("../public//font/VictorMono-Medium.ttf");
+}
+@font-face {
+  font-family: VictorMonoBold;
+  src: url("../public//font/VictorMono.ttf");
+}
+@font-face {
+  font-family: VictorMonoLight;
+  src: url("../public//font/VictorMonoLight.ttf");
+} */
+
+@layer base {
+  body {
+    @apply dark:bg-[#000000] bg-[#F4F4F4] transition-all ease-in duration-200;
+  }
+}
+
+@layer properties {
+  @property --nb-1-tsy {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --nb-2-tsy {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --nb-1-op {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --nb-2-op {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --ic-op {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --btn-scale {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --ic-ts-x {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --ic-thumb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' class='feather feather-thumbs-up'%3E%3Cpath d='M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3'/%3E%3C/svg%3E");
+
+  /* COLORS */
+  --eerie-black: hsla(0, 0%, 12%, 1);
+  --night: hsla(0, 0%, 9%, 1);
+  --black: hsla(0, 0%, 0%, 1);
+  --battleship-gray: hsla(0, 0%, 55%, 0.8);
+
+  /* ANIMATIONS VARS */
+  --nb-1-tsy: 0;
+  --nb-2-tsy: 100;
+
+  --nb-1-op: 1;
+  --nb-2-op: 0;
+
+  --ic-op: 0.5;
+  --ic-ts-x: 0;
+
+  --btn-scale: 1;
+}
+
+/* html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+} */
+
+/* button {
+  font-weight: bold;
+  color: white;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom,
+    var(--eerie-black),
+    var(--night)
+  );
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 1px rgba(255 255 255 / 12%), 0 2px 6px black;
+  cursor: pointer;
+  transform: scale(var(--btn-scale));
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+
+  transition: --nb-1-tsy 0.3s ease, --nb-2-tsy 0.3s ease, --nb-1-op 0.15s ease,
+    --nb-2-op 0.15s ease, --ic-op 0.15s ease, --ic-ts-x 0.15s ease;
+
+  & > div {
+    height: 1.6rem;
+    min-width: 1.6rem;
+    display: flex;
+    align-items: center;
+  }
+
+  & .icon {
+    width: 1.6em;
+    height: 1.6em;
+    background: var(--ic-thumb) no-repeat center center / 70%;
+    opacity: var(--ic-op);
+    transform: translateX(calc(var(--ic-ts-x) * -1px));
+  }
+
+  & .text {
+    font-size: 1.3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    transform: translateX(calc(calc(var(--ic-ts-x) / 3) * -1px));
+
+    > span {
+      display: none;
+    }
+  }
+
+  & .numbers {
+    flex-direction: column;
+    position: relative;
+    margin-left: 2em;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.3em;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 140%;
+      background: rgba(255 255 255 / 20%);
+      position: absolute;
+      left: -50%;
+      top: -16%;
+    }
+
+    > span {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      position: absolute;
+
+      &:nth-child(1) {
+        transform: translateY(calc(var(--nb-1-tsy) * -1%));
+        color: rgba(255 255 255 / 50%);
+        opacity: var(--nb-1-op);
+      }
+      &:nth-child(2) {
+        transform: translateY(calc(var(--nb-2-tsy) * 1%));
+        opacity: var(--nb-2-op);
+      }
+    }
+  }
+
+  &:hover {
+    --ic-op: 1;
+  }
+
+  &.active {
+    --nb-1-tsy: 100;
+    --nb-2-tsy: 0;
+
+    --nb-1-op: 0;
+    --nb-2-op: 1;
+
+    --ic-op: 1;
+    --ic-ts-x: 40;
+
+    & .text > span {
+      display: inline-block;
+    }
+  }
+
+  &.inactive {
+  }
+} */
+
+/* .btn-bounce {
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+} */
+
+/* @keyframes bounce {
+  0% {
+    --btn-scale: 1;
+  }
+
+  25% {
+    --btn-scale: 0.98;
+  }
+
+  50% {
+    --btn-scale: 1.02;
+  }
+
+  100% {
+    --btn-scale: 1;
+  }
+} */
+
+/* *,
+*:before,
+*:after {
+} */
+
+/* .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  margin: auto;
+  padding: 1em;
+  text-align: center;
+  background: rgba(255 255 255 / 10%);
+
+  & a {
+    border-bottom: 1px dashed rgba(255 255 255 / 50%);
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      border-bottom: 1px dashed rgba(255 255 255 / 100%);
+    }
+  }
+} */
